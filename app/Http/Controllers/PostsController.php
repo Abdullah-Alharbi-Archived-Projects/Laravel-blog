@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -23,15 +24,24 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->middleware('auth');
-        $attributes = request(["title", "content"]);
-
-        Post::create([
-            "user_id" => $request->user()->id,
-            "title" => $attributes["title"],
-            "content" => $attributes["content"]
+        $this->validate($request, [
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        return redirect("/");
+    
+        if($request->hasFile("thumbnail")) {
+            $image = $request->file("thumbnail");
+            $path = Storage::disk('uploads')->put('thumbnails', $image);
+            $attributes = request(["title", "content"]);
+    
+            Post::create([
+                "user_id" => $request->user()->id,
+                "title" => $attributes["title"],
+                "content" => $attributes["content"],
+                "img_name" => $path
+            ]);
+    
+            return redirect("/");
+        }
     }
 
     public function show(Post $post)
@@ -55,11 +65,21 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $this->middleware('auth');
-        $attributes = request(["title", "content"]);
-        $post->title = $attributes["title"];
-        $post->content = $attributes["content"];
-        $post->save();
-        return redirect("/");
+        $this->validate($request, [
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        if($request->hasFile("thumbnail")) {
+            Storage::disk('uploads')->delete($post->img_name);
+            $image = $request->file("thumbnail");
+            $path = Storage::disk('uploads')->put('thumbnails', $image);
+            $attributes = request(["title", "content"]);
+            $post->title = $attributes["title"];
+            $post->content = $attributes["content"];
+            $post->img_name = $path;
+            $post->save();
+            return redirect("/");
+        }
     }
 
     /**
@@ -71,6 +91,7 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         $this->middleware('auth');
+        Storage::disk('uploads')->delete($post->img_name);
         $post->delete();
         return "Done !";
     }

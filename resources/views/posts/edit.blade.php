@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Edit Post</div>
                     <div class="card-body">
-                        <form action="/posts/{{ $post->id }}" method="post">
+                        <form enctype="multipart/form-data" action="/posts/{{ $post->id }}" method="post">
                             @csrf
                             @method("PATCH")
 
@@ -24,8 +24,16 @@
                               </textarea>
                             </div>
 
+                            <div class="form-group">
+                                <img src="/uploads/{{ $post->img_name }}" alt="{{ $post->id }}" class="w-50 d-block">
+                                <label for="thumbnail">Upload Thumbnail</label>
+                                <input type="file" class="form-control-file" name="thumbnail" id="thumbnail" placeholder="choose thumbnail">
+                            </div>
+
                             <button type="submit" class="btn btn-warning btn-lg btn-block">Save</button>
                         </form>
+
+
                     </div>
                 </div>
             </div>

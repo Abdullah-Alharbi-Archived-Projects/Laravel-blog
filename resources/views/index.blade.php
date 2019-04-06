@@ -2,11 +2,12 @@
 
 @section('content')
     <div class="container">
-        <ul>
+        <ul style="list-style: none;">
             @foreach ($posts as $post)
-                <li>
+                <li class="mb-4">
                     <a href="/posts/{{ $post->id }}">
-                        {{ $post->title }}
+                        <img src="/uploads/{{ $post->img_name }}" class="w-25 d-block" alt="{{ $post->title }}">
+                        {{ $post->title }} - {{ $post->user->name }}
                     </a>
                 </li>
             @endforeach

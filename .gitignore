@@ -26,3 +26,6 @@ Homestead.json
 
 # ignore editor config
 .editorconfig
+
+# ignore uploads
+/public/uploads/*

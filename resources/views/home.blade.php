@@ -22,6 +22,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>thumbnail</th>
                                     <th>Title</th>
                                     <th>Action</th>
                                 </tr>
@@ -29,7 +30,12 @@
                             <tbody>
                                 @foreach (Auth::user()->posts as $post)
                                     <tr>
-                                        <td scope="row">{{ $post->title }}</td>
+                                        <td scope="row" class="w-25">
+                                            <a href="/posts/{{ $post->id }}">
+                                                <img src="/uploads/{{ $post->img_name }}" alt="{{ $post->id }}" class="w-100 img-thumbnail border-primary">
+                                            </a>
+                                        </td>
+                                        <td>{{ $post->title }}</td>
                                         <td>
                                             <a class="btn btn-primary" href="/posts/{{ $post->id }}">View</a>
                                             <a class="btn btn-secondary" href="/posts/{{ $post->id }}/edit">Edit</a>
