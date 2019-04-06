@@ -6,11 +6,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Create New Post</div>
-
                     <div class="card-body">
-                        <form action="/post" method="post">
+                        <form action="/posts" method="post">
                             @csrf
-
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text"

@@ -13,7 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <h3 class="mb-4">My Posts</h3>
+                        <h3>My Posts</h3>
+                        <div class="clearfix mb-4">
+                            <a class="btn btn-success float-right" href="/posts/create">
+                                Create new post
+                            </a>
+                        </div>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -26,9 +31,9 @@
                                     <tr>
                                         <td scope="row">{{ $post->title }}</td>
                                         <td>
-                                            <a class="btn btn-primary" href="/post/{{ $post->id }}">view</a>
-                                            <a class="btn btn-secondary" href="#">edit</a>
-                                            <a class="btn btn-danger destroy" href="/post/{{ $post->id }}" data-method="delete">delete</a>
+                                            <a class="btn btn-primary" href="/posts/{{ $post->id }}">View</a>
+                                            <a class="btn btn-secondary" href="#">Edit</a>
+                                            <a class="btn btn-danger destroy" href="/posts/{{ $post->id }}" data-method="delete">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

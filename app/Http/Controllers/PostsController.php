@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-
+use Illuminate\Auth\Events\Authenticated;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
+
+    public function create()
+    {
+        return Auth::check() ? view("create_post") : redirect("login");
+    }
 
     /**
      * Store a newly created resource in storage.
