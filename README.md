@@ -2,11 +2,11 @@
 My First Web App in Laravel
 
 # Done:
-- [✅] Authentication
-- [✅] create posts
-- [✅] show posts on home page
-- [✅] dashboard style
-- [✅] delete posts
+- [x] Authentication
+- [x] create posts
+- [x] show posts on home page
+- [x] dashboard style
+- [x] delete posts
 
 
 # TODO:
