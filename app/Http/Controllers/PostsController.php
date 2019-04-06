@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
@@ -12,7 +11,7 @@ class PostsController extends Controller
 
     public function create()
     {
-        return Auth::check() ? view("create_post") : redirect("login");
+        return Auth::check() ? view("posts.create") : redirect("login");
     }
 
     /**
@@ -37,7 +36,13 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
-        return view("show_post", compact("post"));
+        return view("posts.show", compact("post"));
+    }
+
+
+    public function edit(Post $post)
+    {
+        return Auth::check() ? view("posts.edit", compact("post")) : redirect("login");
     }
 
     /**
@@ -47,9 +52,14 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         $this->middleware('auth');
+        $attributes = request(["title", "content"]);
+        $post->title = $attributes["title"];
+        $post->content = $attributes["content"];
+        $post->save();
+        return redirect("/");
     }
 
     /**

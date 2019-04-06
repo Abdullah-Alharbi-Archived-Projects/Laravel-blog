@@ -32,7 +32,7 @@
                                         <td scope="row">{{ $post->title }}</td>
                                         <td>
                                             <a class="btn btn-primary" href="/posts/{{ $post->id }}">View</a>
-                                            <a class="btn btn-secondary" href="#">Edit</a>
+                                            <a class="btn btn-secondary" href="/posts/{{ $post->id }}/edit">Edit</a>
                                             <a class="btn btn-danger destroy" href="/posts/{{ $post->id }}" data-method="delete">Delete</a>
                                         </td>
                                     </tr>

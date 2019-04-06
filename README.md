@@ -7,10 +7,13 @@ My First Web App in Laravel
 - [x] show posts on home page
 - [x] dashboard style
 - [x] delete posts
+- [x] edit ability
 
 
 # TODO:
-- [ ] edit ability
 - [ ] upload image
 - [ ] avatar system
+- [ ] add policy for CRUD
+
+
 
