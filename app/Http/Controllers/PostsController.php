@@ -37,7 +37,7 @@ class PostsController extends Controller
                 "user_id" => $request->user()->id,
                 "title" => $attributes["title"],
                 "content" => $attributes["content"],
-                "img_name" => $path
+                "thumbnail_path" => $path
             ]);
     
             return redirect("/");
@@ -70,13 +70,13 @@ class PostsController extends Controller
         ]);
     
         if($request->hasFile("thumbnail")) {
-            Storage::disk('uploads')->delete($post->img_name);
+            Storage::disk('uploads')->delete($post->thumbnail_path);
             $image = $request->file("thumbnail");
             $path = Storage::disk('uploads')->put('thumbnails', $image);
             $attributes = request(["title", "content"]);
             $post->title = $attributes["title"];
             $post->content = $attributes["content"];
-            $post->img_name = $path;
+            $post->thumbnail_path = $path;
             $post->save();
             return redirect("/");
         }

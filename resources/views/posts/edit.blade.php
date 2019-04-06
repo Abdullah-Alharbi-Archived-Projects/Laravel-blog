@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="form-group">
-                                <img src="/uploads/{{ $post->img_name }}" alt="{{ $post->id }}" class="w-50 d-block">
+                                <img src="/uploads/{{ $post->thumbnail_path }}" alt="{{ $post->id }}" class="w-50 d-block">
                                 <label for="thumbnail">Upload Thumbnail</label>
                                 <input type="file" class="form-control-file" name="thumbnail" id="thumbnail" placeholder="choose thumbnail">
                             </div>

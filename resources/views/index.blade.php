@@ -6,7 +6,7 @@
             @foreach ($posts as $post)
                 <li class="mb-4">
                     <a href="/posts/{{ $post->id }}">
-                        <img src="/uploads/{{ $post->img_name }}" class="w-25 d-block" alt="{{ $post->title }}">
+                        <img src="/uploads/{{ $post->thumbnail_path }}" class="w-25 d-block" alt="{{ $post->title }}">
                         {{ $post->title }} - {{ $post->user->name }}
                     </a>
                 </li>

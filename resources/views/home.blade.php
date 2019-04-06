@@ -32,7 +32,7 @@
                                     <tr>
                                         <td scope="row" class="w-25">
                                             <a href="/posts/{{ $post->id }}">
-                                                <img src="/uploads/{{ $post->img_name }}" alt="{{ $post->id }}" class="w-100 img-thumbnail border-primary">
+                                                <img src="/uploads/{{ $post->thumbnail_path }}" alt="{{ $post->id }}" class="w-100 img-thumbnail border-primary">
                                             </a>
                                         </td>
                                         <td>{{ $post->title }}</td>

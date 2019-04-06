@@ -5,7 +5,7 @@
         <h1>
             {{ $post->title }}
         </h1>
-        <img src="/uploads/{{ $post->img_name }}" alt="{{ $post->title }}" width="80%" class="d-block">
+        <img src="/uploads/{{ $post->thumbnail_path }}" alt="{{ $post->title }}" width="80%" class="d-block">
         <small>Published At: {{ $post->created_at }}</small>
         <p>
             {{ $post->content }}
