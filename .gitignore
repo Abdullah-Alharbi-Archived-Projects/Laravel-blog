@@ -13,6 +13,7 @@ storage/*.key
 .env.*.php
 .env.php
 .env
+.env.example
 Homestead.yaml
 Homestead.json
 
@@ -22,3 +23,6 @@ Homestead.json
 
 # ignore vscode custom settings
 .vscode/*
+
+# ignore editor config
+.editorconfig
