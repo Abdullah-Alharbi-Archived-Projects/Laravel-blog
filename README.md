@@ -8,10 +8,9 @@ My First Web App in Laravel
 - [x] dashboard style
 - [x] delete posts
 - [x] edit ability
-
+- [x] upload image
 
 # TODO:
-- [ ] upload image
 - [ ] avatar system
 - [ ] add policy for CRUD
 
