@@ -12,7 +12,7 @@ My First Web App in Laravel
 
 # TODO:
 - [ ] avatar system
+- [ ] validation system
+    - [ ] Client Side
+    - [ ] Server Side
 - [ ] add policy for CRUD
-
-
-
