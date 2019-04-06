@@ -10,6 +10,6 @@ My First Web App in Laravel
 
 
 # TODO:
-- [] edit ability
-- [] upload image
-- [] avatar system
+- [ ] edit ability
+- [ ] upload image
+- [ ] avatar system
