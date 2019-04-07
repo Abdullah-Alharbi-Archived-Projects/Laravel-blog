@@ -10,8 +10,12 @@ My First Web App in Laravel
 - [x] edit ability
 - [x] upload image
 
-# TODO:
+
+# in progress ✨
 - [ ] profile system
+
+
+# TODO:
 - [ ] validation system
     - [ ] Client Side
     - [ ] Server Side

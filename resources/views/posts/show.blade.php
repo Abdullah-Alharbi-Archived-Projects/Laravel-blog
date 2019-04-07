@@ -8,7 +8,7 @@
         <img src="/uploads/{{ $post->thumbnail_path }}" alt="{{ $post->title }}" width="80%" class="d-block">
         <small>
             <span>Published At: {{ $post->created_at }}</span><br>
-            <strong>Author: {{ $post->user->name }}</strong>
+            <strong>Author: <a href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a></strong>
         </small>
         <p>
             {{ $post->content }}
