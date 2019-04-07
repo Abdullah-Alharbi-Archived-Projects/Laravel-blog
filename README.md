@@ -13,6 +13,8 @@ My First Web App in Laravel
 
 # in progress ✨
 - [ ] profile system
+    - [x] show profile
+    - [ ] edit profile
 
 
 # TODO:
