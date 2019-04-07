@@ -11,7 +11,7 @@ My First Web App in Laravel
 - [x] upload image
 
 # TODO:
-- [ ] avatar system
+- [ ] profile system
 - [ ] validation system
     - [ ] Client Side
     - [ ] Server Side
